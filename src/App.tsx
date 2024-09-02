@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Button from './components/atoms/button/Button.atom';
 import Input from './components/atoms/input/Input.atom';
+import Dropdown from './components/atoms/dropdown/Dropdown.atom';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       </header> */}
       <Button text='Add Input' />
       <Input name='Input' value='' placeholder='Place holder' isError error='this is an error message' />
+      <Dropdown placeholder='This is a dropdown' />
     </div>
   );
 }
