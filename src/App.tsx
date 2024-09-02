@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Button from './components/atoms/button/Button.atom';
+import Input from './components/atoms/input/Input.atom';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </a>
       </header> */}
       <Button text='Add Input' />
+      <Input name='Input' value='' placeholder='Place holder' isError error='this is an error message' />
     </div>
   );
 }
