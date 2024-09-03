@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Button from './components/atoms/button/Button.atom';
@@ -7,6 +7,7 @@ import Dropdown from './components/atoms/dropdown/Dropdown.atom';
 import WareHouseSelectorAndStock from './components/molecules/warehouse-selector-and-stock/WareHouseSelectorAndStock.molecule';
 
 function App() {
+  const [value, setValue] = useState<string>('')
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -26,7 +27,7 @@ function App() {
       <Button text='Add Input' />
       <Input name='Input' value='' placeholder='Place holder' isError error='this is an error message' />
       <Dropdown placeholder='This is a dropdown' />
-      <WareHouseSelectorAndStock />
+      <WareHouseSelectorAndStock value={value} setValue={setValue} />
     </div>
   );
 }

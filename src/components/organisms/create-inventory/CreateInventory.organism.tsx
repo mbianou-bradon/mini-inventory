@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input from '../../atoms/input/Input.atom'
 import Button from '../../atoms/button/Button.atom'
 import Dropdown from '../../atoms/dropdown/Dropdown.atom'
 import WareHouseSelectorAndStock from '../../molecules/warehouse-selector-and-stock/WareHouseSelectorAndStock.molecule'
 
 export default function CreateInventory() {
+    const [value, setValue] = useState('');
     return (
         <form>
             <div>
@@ -17,7 +18,7 @@ export default function CreateInventory() {
             </div>
 
             {/* Selection de magasin et stock */}
-            <WareHouseSelectorAndStock />
+            <WareHouseSelectorAndStock setValue={setValue} value={value} />
 
             <div>
                 <Button text='Save' />
