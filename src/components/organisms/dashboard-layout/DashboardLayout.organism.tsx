@@ -1,4 +1,5 @@
 import React from 'react'
+import Sidebar from '../../molecules/sidebar/Sidebar.organism'
 
 type Props = {
     children: React.ReactNode

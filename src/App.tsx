@@ -7,12 +7,13 @@ import Dropdown from './components/atoms/dropdown/Dropdown.atom';
 import WareHouseSelectorAndStock from './components/molecules/warehouse-selector-and-stock/WareHouseSelectorAndStock.molecule';
 import CreateInventory from './components/organisms/create-inventory/CreateInventory.organism';
 import InventoryTable from './components/organisms/inventory-table/InventoryTable.organism';
+import Sidebar from './components/molecules/sidebar/Sidebar.organism';
 
 function App() {
   const [value, setValue] = useState<string>('')
   return (
     <div className="App">
-      <InventoryTable />
+      <Sidebar />
     </div>
   );
 }
