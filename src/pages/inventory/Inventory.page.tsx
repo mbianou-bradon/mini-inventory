@@ -4,7 +4,7 @@ import DashboardLayout from '../../components/organisms/dashboard-layout/Dashboa
 export default function Inventory() {
   return (
     <DashboardLayout>
-
+      <div></div>
     </DashboardLayout>
   )
 }
