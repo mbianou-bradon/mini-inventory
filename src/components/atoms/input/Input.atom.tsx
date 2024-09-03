@@ -1,7 +1,7 @@
 import React from 'react'
 
 type Props = {
-    value: string;
+    value?: string;
     setValue?: React.Dispatch<React.SetStateAction<string>>;
     placeholder?: string;
     name?: string;
