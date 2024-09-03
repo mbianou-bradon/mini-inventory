@@ -5,6 +5,7 @@ import Sidebar from './components/molecules/sidebar/Sidebar.organism';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './pages/home/Home.page';
 import Inventory from './pages/inventory/Inventory.page';
+import Magasin from './pages/magasin/Magasin.page';
 
 
 const MyApp = () => {
@@ -28,7 +29,7 @@ const router = createBrowserRouter(
       children: [
         { path: '/', element: <Home />, },
         { path: '/inventory', element: <Inventory /> },
-        // { path: '/login', element: <Login />},
+        { path: '/magasin', element: <Magasin /> },
       ]
     }
   ]
