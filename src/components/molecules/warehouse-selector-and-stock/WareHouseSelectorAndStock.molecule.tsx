@@ -11,13 +11,15 @@ type Props = {
 
 export default function WareHouseSelectorAndStock({ value, setValue }: Props) {
     return (
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-5'>
             <div className='flex items-center gap-4'>
                 <Dropdown data={magasins} value={value} setValue={setValue} placeholder='Select Magasin' />
                 <Input />
             </div>
 
-            <Button text='Add a warehouse' />
+            <div className='w-fit'>
+                <Button text='Add a warehouse' />
+            </div>
         </div>
     )
 }

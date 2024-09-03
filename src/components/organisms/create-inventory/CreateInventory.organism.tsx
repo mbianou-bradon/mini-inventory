@@ -6,24 +6,37 @@ import WareHouseSelectorAndStock from '../../molecules/warehouse-selector-and-st
 
 export default function CreateInventory() {
     const [value, setValue] = useState('');
+    const [produit, setProduit] = useState('');
+    const [date, setDate] = useState('');
+    const [magasin, setMagasin] = useState({});
+
+
     return (
-        <form>
-            <div>
-                <label htmlFor=""></label>
-                <Input />
-            </div>
-            <div>
-                <label htmlFor=""></label>
-                <Dropdown />
-            </div>
+        <div className='fixed z-20 bg-black/70 min-h-screen w-full flex items-center justify-center'>
 
-            {/* Selection de magasin et stock */}
-            <WareHouseSelectorAndStock setValue={setValue} value={value} />
+            <form className='flex flex-col gap-10 w-full max-w-[800px] p-10 bg-white rounded-lg min-h-[350px]'>
+                <h2 className='text-[30px] font-bold mb-[10px]'>Add an Entry</h2>
+                <div className='flex items-center gap-10'>
+                    <label htmlFor="" className='flex items-center gap-2'>Produit <span className='text-red-500'>*</span></label>
+                    <Input value={produit} setValue={setProduit} placeholder='Select Product' />
+                </div>
+                <div className='flex items-center gap-10'>
+                    <label htmlFor="" className='flex items-center gap-2'>Date <span className='text-red-500'>*</span></label>
+                    <Input value={date} setValue={setDate} placeholder='Select date' />
+                </div>
 
-            <div>
-                <Button text='Save' />
-                <Button text='Cancel' type="button" styles='bg-slate-400 text-slate-700' />
-            </div>
-        </form>
+                {/* Selection de magasin et stock */}
+                <div>
+                    <label htmlFor="" className='flex items-center gap-2 mb-4'>Select Magasin and Stock <span className='text-red-500'>*</span></label>
+
+                    <WareHouseSelectorAndStock setValue={setValue} value={value} />
+                </div>
+
+                <div className='flex items-center gap-5 w-full justify-center'>
+                    <Button text='Save' />
+                    <Button text='Cancel' type="button" styles='bg-slate-200 text-slate-700' />
+                </div>
+            </form>
+        </div>
     )
 }
