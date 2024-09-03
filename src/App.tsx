@@ -6,12 +6,13 @@ import Input from './components/atoms/input/Input.atom';
 import Dropdown from './components/atoms/dropdown/Dropdown.atom';
 import WareHouseSelectorAndStock from './components/molecules/warehouse-selector-and-stock/WareHouseSelectorAndStock.molecule';
 import CreateInventory from './components/organisms/create-inventory/CreateInventory.organism';
+import InventoryTable from './components/organisms/inventory-table/InventoryTable.organism';
 
 function App() {
   const [value, setValue] = useState<string>('')
   return (
     <div className="App">
-      <CreateInventory />
+      <InventoryTable />
     </div>
   );
 }
