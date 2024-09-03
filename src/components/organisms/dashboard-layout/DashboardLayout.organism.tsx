@@ -6,11 +6,13 @@ type Props = {
 }
 export default function DashboardLayout({ children }: Props) {
     return (
-        <div>
+        <div className='flex items-start gap-2 w-full'>
             <Sidebar />
-            <div>
+            <div className='w-full'>
                 <div></div>
-                {children}
+                <div className='p-6 shadow-inner shadow-primary-blue/50'>
+                    {children}
+                </div>
             </div>
         </div>
     )

@@ -4,6 +4,7 @@ import './App.css';
 import Sidebar from './components/molecules/sidebar/Sidebar.organism';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './pages/home/Home.page';
+import Inventory from './pages/inventory/Inventory.page';
 
 
 const MyApp = () => {
@@ -12,7 +13,7 @@ const MyApp = () => {
   return (
     <div className="font-mono [&_*]:transition-transform [&_*]:ease-linear [&_*]:duration-200">
 
-      <div className="h-full lg:h-scree sm:ml-[13rem]">
+      <div className="h-full lg:h-scree">
         <Outlet />
       </div>
     </div>
@@ -26,7 +27,7 @@ const router = createBrowserRouter(
       // errorElement: <Error />,
       children: [
         { path: '/', element: <Home />, },
-        // { path: '/students', element: <Users />},
+        { path: '/inventory', element: <Inventory /> },
         // { path: '/login', element: <Login />},
       ]
     }
