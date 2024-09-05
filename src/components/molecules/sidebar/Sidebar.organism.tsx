@@ -10,22 +10,22 @@ export default function Sidebar() {
 
             <ul className='flex flex-col gap-4 [&>li]:px-8 [&>li]:py-2 [&>li]:text-lg [&>li:hover]:bg-primary-blue [&>li:hover]:text-white'>
                 <li>
-                    <NavLink to={""} className={({ isActive }) => (isActive ? "bg-primary-blue text-white w-full" : "bg-transparent text-black w-full")}>
+                    <NavLink to={"/dashboard"} className={({ isActive }) => (isActive ? "bg-primary-blue text-white w-full" : "bg-transparent text-black w-full")}>
                         Dashboard
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={""} className={({ isActive }) => (isActive ? "bg-primary-blue text-white w-full" : "bg-transparent text-black w-full")}>
+                    <NavLink to={"/inventory"} className={({ isActive }) => (isActive ? "bg-primary-blue text-white w-full" : "bg-transparent text-black w-full")}>
                         Inventory
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={""} className={({ isActive }) => (isActive ? "bg-primary-blue text-white w-full" : "bg-transparent text-black w-full")}>
+                    <NavLink to={"/produit"} className={({ isActive }) => (isActive ? "bg-primary-blue text-white w-full" : "bg-transparent text-black w-full")}>
                         Produit
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={""} className={({ isActive }) => (isActive ? "bg-primary-blue text-white w-full" : "bg-transparent text-black w-full")}>
+                    <NavLink to={"/magasin"} className={({ isActive }) => (isActive ? "bg-primary-blue text-white w-full" : "bg-transparent text-black w-full")}>
                         Magasin
                     </NavLink>
                 </li>
