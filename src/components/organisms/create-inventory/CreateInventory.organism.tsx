@@ -12,7 +12,7 @@ export default function CreateInventory() {
 
 
     return (
-        <div className='fixed z-20 bg-black/70 min-h-screen w-full flex items-center justify-center'>
+        <div className='fixed top-0 left-0 z-20 bg-black/70 min-h-screen w-full flex items-center justify-center'>
 
             <form className='flex flex-col gap-10 w-full max-w-[800px] p-10 bg-white rounded-lg min-h-[350px]'>
                 <h2 className='text-[30px] font-bold mb-[10px]'>Add an Entry</h2>

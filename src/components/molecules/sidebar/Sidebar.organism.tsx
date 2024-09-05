@@ -8,7 +8,7 @@ export default function Sidebar() {
                 <p className='text-primary-blue text-2xl font-bold cursor-pointer'>MiniInventory</p>
             </div>
 
-            <ul className='flex flex-col gap-4 [&>li]:px-8 [&>li]:py-2 [&>li]:text-lg [&>li:hover]:bg-primary-blue [&>li:hover]:text-white'>
+            <ul className='flex flex-col gap-4 my-10 [&>li]:my-2 [&>li>a]:px-8 [&>li>a]:py-2 [&>li]:text-lg [&>li:hover]:bg-primary-blue [&>li:hover]:text-white'>
                 <li>
                     <NavLink to={"/dashboard"} className={({ isActive }) => (isActive ? "bg-primary-blue text-white w-full" : "bg-transparent text-black w-full")}>
                         Dashboard
