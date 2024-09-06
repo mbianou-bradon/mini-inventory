@@ -4,7 +4,7 @@ import ChevronIcon from '../../../lib/assets/icons/Chevron.icon';
 type Props = {
     value?: string;
     placeholder?: string;
-    setValue?: React.Dispatch<React.SetStateAction<string>>
+    setValue?: (value: string) => void
     data?: any[];
 }
 export default function Dropdown({ value, placeholder, setValue, data }: Props) {

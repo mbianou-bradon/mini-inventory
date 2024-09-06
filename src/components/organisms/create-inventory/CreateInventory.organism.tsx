@@ -4,17 +4,38 @@ import Button from '../../atoms/button/Button.atom'
 import Dropdown from '../../atoms/dropdown/Dropdown.atom'
 import WareHouseSelectorAndStock from '../../molecules/warehouse-selector-and-stock/WareHouseSelectorAndStock.molecule'
 import { produits } from '../../../data/produit.data'
+import { deleteLStorage, getLStorage, setLStorage } from '../../../lib/utils/localStorage.util'
+import { Inventaire } from '../../../lib/types/inventaire.type'
 
 export default function CreateInventory() {
     const [produit, setProduit] = useState('');
     const [date, setDate] = useState('');
     const [magasinStockValue, setMagasinStockValue] = useState<Record<string, string>>({});
 
+    function handleSaveInventory(e: React.ChangeEvent<HTMLFormElement>) {
+        e.preventDefault();
+        const inventory: Inventaire[] = getLStorage('inventory');
+        if (inventory) {
+            deleteLStorage('inventory');
+            setLStorage('inventory', [...inventory, {
+                date: date,
+                produitId: produit,
+                stock: magasinStockValue
+            }])
+
+        } else {
+            setLStorage('inventory', [{
+                date: date,
+                produitId: produit,
+                stock: magasinStockValue
+            }])
+        }
+    }
 
     return (
         <div className='fixed top-0 left-0 z-20 bg-black/70 min-h-screen w-full flex items-center justify-center'>
 
-            <form className='flex flex-col gap-10 w-full max-w-[800px] p-10 bg-white rounded-lg min-h-[350px]'>
+            <form onSubmit={handleSaveInventory} className='flex flex-col gap-10 w-full max-w-[800px] p-10 bg-white rounded-lg min-h-[350px]'>
                 <h2 className='text-[30px] font-bold mb-[10px]'>Add an Entry</h2>
                 <div className='flex items-center gap-10'>
                     <label htmlFor="" className='flex items-center gap-2'>Produit <span className='text-red-500'>*</span></label>
