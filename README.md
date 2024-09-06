@@ -49,11 +49,4 @@ Your application should now be running at `http://localhost:3000`.
 
 Enjoy managing your inventory efficiently!
 
-
-### File structure
-
-
-### Video Demo
-
-
 ```
