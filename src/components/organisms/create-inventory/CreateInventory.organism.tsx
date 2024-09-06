@@ -3,6 +3,7 @@ import Input from '../../atoms/input/Input.atom'
 import Button from '../../atoms/button/Button.atom'
 import Dropdown from '../../atoms/dropdown/Dropdown.atom'
 import WareHouseSelectorAndStock from '../../molecules/warehouse-selector-and-stock/WareHouseSelectorAndStock.molecule'
+import { produits } from '../../../data/produit.data'
 
 export default function CreateInventory() {
     const [value, setValue] = useState('');
@@ -18,11 +19,11 @@ export default function CreateInventory() {
                 <h2 className='text-[30px] font-bold mb-[10px]'>Add an Entry</h2>
                 <div className='flex items-center gap-10'>
                     <label htmlFor="" className='flex items-center gap-2'>Produit <span className='text-red-500'>*</span></label>
-                    <Input value={produit} setValue={setProduit} placeholder='Select Product' />
+                    <Dropdown value={produit} setValue={setProduit} placeholder='Select Product' data={produits} />
                 </div>
                 <div className='flex items-center gap-10'>
                     <label htmlFor="" className='flex items-center gap-2'>Date <span className='text-red-500'>*</span></label>
-                    <Input value={date} setValue={setDate} placeholder='Select date' />
+                    <Input value={date} setValue={setDate} placeholder='Select date' type='date' />
                 </div>
 
                 {/* Selection de magasin et stock */}

@@ -17,9 +17,10 @@ export default function WareHouseSelectorAndStock({ value, setValue }: Props) {
                 <Input />
             </div>
 
-            <div className='w-fit'>
+            {/* TODO: Add the possiblitiy to select multiple warehouses */}
+            {/* <div className='w-fit'>
                 <Button text='Add a warehouse' />
-            </div>
+            </div> */}
         </div>
     )
 }
