@@ -1,7 +1,6 @@
-```markdown
 # Welcome to the Inventory System
 
-Welcome to the Inventory System! This project is a React application built using **Tailwind CSS** and **TypeScript**. Follow the steps below to get started:
+Welcome to the Mini-Inventory System! This project is a React application built using **Tailwind CSS** and **TypeScript**. Follow the steps below to get started:
 
 ## Getting Started
 
@@ -12,8 +11,8 @@ To run the project locally, follow these steps:
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/inventory-system.git
-cd inventory-system
+git clone https://github.com/mbianou-bradon/mini-inventory.git
+cd mini-inventory
 ```
 
 ### 2. Install Dependencies
@@ -52,7 +51,6 @@ Enjoy managing your inventory efficiently!
 
 
 ### File structure
-
 
 
 ### Video Demo
