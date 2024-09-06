@@ -5,8 +5,8 @@ import Button from '../../atoms/button/Button.atom'
 import { magasins } from '../../../data/magasin.data'
 
 type Props = {
-    value: Record<string, number>; // Record of magasin (warehouse) to stock value
-    setValue: React.Dispatch<React.SetStateAction<Record<string, number>>>;
+    value: Record<string, string>; // Record of magasin (warehouse) to stock value
+    setValue: React.Dispatch<React.SetStateAction<Record<string, string>>>;
 }
 
 export default function WareHouseSelectorAndStock({ value, setValue }: Props) {
@@ -15,7 +15,7 @@ export default function WareHouseSelectorAndStock({ value, setValue }: Props) {
     function handleMagasinChange(newMagasin: string) {
         setValue((prev) => {
             const newValue = { ...prev };
-            newValue[newMagasin] = newValue[newMagasin] || 0;
+            newValue[newMagasin] = newValue[newMagasin] || '';
             return newValue;
         });
     };
@@ -24,7 +24,7 @@ export default function WareHouseSelectorAndStock({ value, setValue }: Props) {
     const handleStockValueChange = (newStockValue: string) => {
         setValue((prev) => ({
             // ...prev,
-            [Object.keys(value)[0]]: Number(newStockValue),
+            [Object.keys(value)[0]]: newStockValue,
         }));
     };
 

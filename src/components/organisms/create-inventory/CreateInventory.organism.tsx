@@ -13,7 +13,7 @@ export default function CreateInventory({ closeModal, data }: {
 }) {
     const [produit, setProduit] = useState('');
     const [date, setDate] = useState('');
-    const [magasinStockValue, setMagasinStockValue] = useState<Record<string, number>>({ '': 0 });
+    const [magasinStockValue, setMagasinStockValue] = useState<Record<string, string>>({});
 
     /** State management for UI */
     const [isSuccess, setIsSucess] = useState<boolean>(false);
@@ -56,7 +56,7 @@ export default function CreateInventory({ closeModal, data }: {
         if (data && data?.date !== '') {
             setProduit(data?.produitId!);
             setDate(data?.date!);
-            setMagasinStockValue(data?.stock);
+            // setMagasinStockValue(data?.stock);
         }
     }, [])
     return (

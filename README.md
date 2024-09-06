@@ -1,15 +1,61 @@
-# Getting Started with Create React App
+```markdown
+# Welcome to the Inventory System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Inventory System! This project is a React application built using **Tailwind CSS** and **TypeScript**. Follow the steps below to get started:
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+To run the project locally, follow these steps:
 
-### `npm start`
+### 1. Clone the Repository
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+First, clone the repository to your local machine:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+git clone https://github.com/your-username/inventory-system.git
+cd inventory-system
+```
+
+### 2. Install Dependencies
+
+Install the necessary dependencies using `npm` or `yarn`:
+
+```bash
+# Using npm
+npm install
+
+# Or using yarn
+yarn install
+```
+
+### 3. Run the Project
+
+Start the development server:
+
+```bash
+# Using npm
+npm run dev
+
+# Or using yarn
+yarn dev
+```
+
+Your application should now be running at `http://localhost:3000`.
+
+## Built With
+
+- **React**: A JavaScript library for building user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework.
+- **TypeScript**: A superset of JavaScript that adds static typing.
+
+Enjoy managing your inventory efficiently!
+
+
+### File structure
+
+
+
+### Video Demo
+
+
+```
