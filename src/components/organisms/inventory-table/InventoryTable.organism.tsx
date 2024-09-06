@@ -5,7 +5,7 @@ import { Inventaire } from '../../../lib/types/inventaire.type'
 import { produits } from '../../../data/produit.data'
 import { magasins } from '../../../data/magasin.data'
 
-export default function InventoryTable() {
+export default function InventoryTable({ setData }: { setData?: React.Dispatch<React.SetStateAction<Inventaire>> }) {
     const [inventory, setInventory] = useState<Inventaire[]>([])
     useEffect(() => {
         const inventory = getLStorage('inventory');
@@ -25,11 +25,13 @@ export default function InventoryTable() {
                 <th>Stock</th>
                 <th>Date</th>
             </tr>
-            <tbody className='text-left'>
+            {inventory.length > 0 ? <tbody className='text-left'>
                 {inventory.map((element, index) => {
-                    return <TableRow key={index} productName={produits.filter(p => p.id === element.produitId)[0]['nom']} date={element.date} stock={String(element.stock[Object.keys(element.stock)[0]])} warehouse={magasins.filter(wh => wh.id === Object.keys(element.stock)[0])[0]['nom']} />
+                    return <TableRow key={index} productName={produits.filter(p => p.id === element.produitId)[0]['nom']} date={element.date} stock={String(element.stock[Object.keys(element.stock)[0]])} warehouse={magasins.filter(wh => wh.id === Object.keys(element.stock)[0])[0]['nom']} onclick={() => {
+                        setData?.(element)
+                    }} />
                 })}
-            </tbody>
+            </tbody> : <p className='py-5 px-4 '>No Inventory element found!</p>}
         </table>
     )
 }

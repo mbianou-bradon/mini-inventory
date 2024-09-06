@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '../../atoms/input/Input.atom'
 import Button from '../../atoms/button/Button.atom'
 import Dropdown from '../../atoms/dropdown/Dropdown.atom'
@@ -7,13 +7,13 @@ import { produits } from '../../../data/produit.data'
 import { deleteLStorage, getLStorage, setLStorage } from '../../../lib/utils/localStorage.util'
 import { Inventaire } from '../../../lib/types/inventaire.type'
 
-export default function CreateInventory({ closeModal }: {
+export default function CreateInventory({ closeModal, data }: {
     closeModal: React.Dispatch<React.SetStateAction<boolean>>
-
+    data?: Inventaire
 }) {
     const [produit, setProduit] = useState('');
     const [date, setDate] = useState('');
-    const [magasinStockValue, setMagasinStockValue] = useState<Record<string, string>>({});
+    const [magasinStockValue, setMagasinStockValue] = useState<Record<string, Number>>({});
 
     /** State management for UI */
     const [isSuccess, setIsSucess] = useState<boolean>(false);
@@ -52,6 +52,13 @@ export default function CreateInventory({ closeModal }: {
         }
     }
 
+    useEffect(() => {
+        if (data && data?.date !== '') {
+            setProduit(data?.produitId!);
+            setDate(data?.date!);
+            setMagasinStockValue(data?.stock);
+        }
+    }, [])
     return (
         <div className='fixed top-0 left-0 z-20 bg-black/70 min-h-screen w-full flex items-center justify-center'>
 

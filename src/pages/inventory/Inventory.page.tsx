@@ -3,9 +3,15 @@ import DashboardLayout from '../../components/organisms/dashboard-layout/Dashboa
 import InventoryTable from '../../components/organisms/inventory-table/InventoryTable.organism'
 import Button from '../../components/atoms/button/Button.atom'
 import CreateInventory from '../../components/organisms/create-inventory/CreateInventory.organism'
+import { Inventaire } from '../../lib/types/inventaire.type'
 
 export default function Inventory() {
-  const [isCreating, setIsCreating] = useState<boolean>(false)
+  const [isCreating, setIsCreating] = useState<boolean>(false);
+  const [data, setData] = useState<Inventaire>({
+    produitId: '',
+    date: '',
+    stock: {}
+  });
   return (
     <DashboardLayout>
       <div>
@@ -15,7 +21,7 @@ export default function Inventory() {
             <p>Export</p>
           </div>
         </div>
-        <InventoryTable />
+        <InventoryTable setData={setData} />
         {isCreating && <CreateInventory closeModal={setIsCreating} />}
       </div>
     </DashboardLayout>
