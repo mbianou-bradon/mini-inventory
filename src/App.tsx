@@ -6,6 +6,7 @@ import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './pages/home/Home.page';
 import Inventory from './pages/inventory/Inventory.page';
 import Magasin from './pages/magasin/Magasin.page';
+import Product from './pages/product/product.page';
 
 
 const MyApp = () => {
@@ -30,7 +31,7 @@ const router = createBrowserRouter(
         { path: '/', element: <Home />, },
         { path: '/inventory', element: <Inventory /> },
         { path: '/magasin', element: <Magasin /> },
-        // { path: '/produit', element: <Product /> },
+        { path: '/produit', element: <Product /> },
       ]
     }
   ]
