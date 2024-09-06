@@ -6,10 +6,9 @@ import WareHouseSelectorAndStock from '../../molecules/warehouse-selector-and-st
 import { produits } from '../../../data/produit.data'
 
 export default function CreateInventory() {
-    const [value, setValue] = useState('');
     const [produit, setProduit] = useState('');
     const [date, setDate] = useState('');
-    const [magasin, setMagasin] = useState({});
+    const [magasinStockValue, setMagasinStockValue] = useState<Record<string, string>>({});
 
 
     return (
@@ -30,7 +29,7 @@ export default function CreateInventory() {
                 <div>
                     <label htmlFor="" className='flex items-center gap-2 mb-4'>Select Magasin and Stock <span className='text-red-500'>*</span></label>
 
-                    <WareHouseSelectorAndStock setValue={setValue} value={value} />
+                    <WareHouseSelectorAndStock setValue={setMagasinStockValue} value={magasinStockValue} />
                 </div>
 
                 <div className='flex items-center gap-5 w-full justify-center'>

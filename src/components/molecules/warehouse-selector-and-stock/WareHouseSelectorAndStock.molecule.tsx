@@ -5,16 +5,35 @@ import Button from '../../atoms/button/Button.atom'
 import { magasins } from '../../../data/magasin.data'
 
 type Props = {
-    value: string;
-    setValue: React.Dispatch<React.SetStateAction<string>>
+    value: Record<string, string>; // Record of magasin (warehouse) to stock value
+    setValue: React.Dispatch<React.SetStateAction<Record<string, string>>>;
 }
 
 export default function WareHouseSelectorAndStock({ value, setValue }: Props) {
+
+    /** Function to update selected magasin */
+    function handleMagasinChange(newMagasin: string) {
+        setValue((prev) => {
+            const newValue = { ...prev };
+            newValue[newMagasin] = newValue[newMagasin] || '';
+            return newValue;
+        });
+    };
+
+    /** Function to update stockValue */
+    const handleStockValueChange = (newStockValue: string) => {
+        setValue((prev) => ({
+            ...prev,
+            [value.magasin]: newStockValue,
+        }));
+    };
+
+
     return (
         <div className='flex flex-col gap-5'>
             <div className='flex items-center gap-4'>
-                <Dropdown data={magasins} value={value} setValue={setValue} placeholder='Select Magasin' />
-                <Input />
+                <Dropdown data={magasins} value={value.magasin} setValue={handleMagasinChange} placeholder='Select Magasin' />
+                <Input value={value[value.magasin]} setValue={handleStockValueChange} placeholder='Enter stock value' />
             </div>
 
             {/* TODO: Add the possiblitiy to select multiple warehouses */}
