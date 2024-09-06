@@ -23,8 +23,8 @@ export default function WareHouseSelectorAndStock({ value, setValue }: Props) {
     /** Function to update stockValue */
     const handleStockValueChange = (newStockValue: string) => {
         setValue((prev) => ({
-            ...prev,
-            [value.magasin]: newStockValue,
+            // ...prev,
+            [Object.keys(value)[0]]: newStockValue,
         }));
     };
 
@@ -32,7 +32,7 @@ export default function WareHouseSelectorAndStock({ value, setValue }: Props) {
     return (
         <div className='flex flex-col gap-5'>
             <div className='flex items-center gap-4'>
-                <Dropdown data={magasins} value={value.magasin} setValue={handleMagasinChange} placeholder='Select Magasin' />
+                <Dropdown data={magasins} value={Object.keys(value)[0]} setValue={handleMagasinChange} placeholder='Select Magasin' />
                 <Input value={value[value.magasin]} setValue={handleStockValueChange} placeholder='Enter stock value' />
             </div>
 

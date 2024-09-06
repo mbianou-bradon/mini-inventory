@@ -7,7 +7,10 @@ import { produits } from '../../../data/produit.data'
 import { deleteLStorage, getLStorage, setLStorage } from '../../../lib/utils/localStorage.util'
 import { Inventaire } from '../../../lib/types/inventaire.type'
 
-export default function CreateInventory() {
+export default function CreateInventory({ closeModal }: {
+    closeModal: React.Dispatch<React.SetStateAction<boolean>>
+
+}) {
     const [produit, setProduit] = useState('');
     const [date, setDate] = useState('');
     const [magasinStockValue, setMagasinStockValue] = useState<Record<string, string>>({});
@@ -55,7 +58,7 @@ export default function CreateInventory() {
 
                 <div className='flex items-center gap-5 w-full justify-center'>
                     <Button text='Save' />
-                    <Button text='Cancel' type="button" styles='bg-slate-200 text-slate-700' />
+                    <Button text='Cancel' type="button" styles='bg-slate-200 text-slate-700' onClick={() => closeModal(false)} />
                 </div>
             </form>
         </div>

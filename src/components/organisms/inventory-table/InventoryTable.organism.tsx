@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TableRow from '../../molecules/table-row/TableRow.molecule'
+import { getLStorage } from '../../../lib/utils/localStorage.util'
+import { Inventaire } from '../../../lib/types/inventaire.type'
+import { produits } from '../../../data/produit.data'
+import { magasins } from '../../../data/magasin.data'
 
 export default function InventoryTable() {
+    const [inventory, setInventory] = useState<Inventaire[]>([])
+    useEffect(() => {
+        const inventory = getLStorage('inventory');
+        if (inventory) {
+            setInventory(inventory);
+            inventory.map((item: any) => {
+                console.log(item.stock)
+            })
+        }
+    }, [])
     return (
         <table className='w-full bg-white'>
             <tr className='text-left [&>*]:py-3'>
@@ -12,8 +26,8 @@ export default function InventoryTable() {
                 <th>Date</th>
             </tr>
             <tbody className='text-left'>
-                {Array(10).fill(0).map((_v, index) => {
-                    return <TableRow key={index} />
+                {inventory.map((element, index) => {
+                    return <TableRow key={index} productName={produits.filter(p => p.id === element.produitId)[0]['nom']} date={element.date} stock={String(element.stock[Object.keys(element.stock)[0]])} warehouse={magasins.filter(wh => wh.id === Object.keys(element.stock)[0])[0]['nom']} />
                 })}
             </tbody>
         </table>

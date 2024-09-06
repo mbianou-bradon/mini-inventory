@@ -16,7 +16,7 @@ export default function Inventory() {
           </div>
         </div>
         <InventoryTable />
-        {isCreating && <CreateInventory />}
+        {isCreating && <CreateInventory closeModal={setIsCreating} />}
       </div>
     </DashboardLayout>
   )
