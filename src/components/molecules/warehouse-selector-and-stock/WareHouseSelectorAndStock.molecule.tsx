@@ -33,7 +33,7 @@ export default function WareHouseSelectorAndStock({ value, setValue }: Props) {
         <div className='flex flex-col gap-5'>
             <div className='flex items-center gap-4'>
                 <Dropdown data={magasins} value={Object.keys(value)[0]} setValue={handleMagasinChange} placeholder='Select Magasin' />
-                <Input value={value[value.magasin]} setValue={handleStockValueChange} placeholder='Enter stock value' />
+                <Input value={value[value.magasin]} setValue={handleStockValueChange} placeholder='Enter stock value' disabled={Object.keys(value)[0] ? false : true} />
             </div>
 
             {/* TODO: Add the possiblitiy to select multiple warehouses */}

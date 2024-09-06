@@ -15,6 +15,9 @@ export default function CreateInventory({ closeModal }: {
     const [date, setDate] = useState('');
     const [magasinStockValue, setMagasinStockValue] = useState<Record<string, string>>({});
 
+    /** State management for UI */
+    const [isSuccess, setIsSucess] = useState<boolean>(false);
+
     function handleSaveInventory(e: React.ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         const inventory: Inventaire[] = getLStorage('inventory');
@@ -25,6 +28,13 @@ export default function CreateInventory({ closeModal }: {
                 produitId: produit,
                 stock: magasinStockValue
             }])
+            setIsSucess(true);
+            setProduit('');
+            setDate('');
+            setMagasinStockValue({});
+            setTimeout(() => {
+                setIsSucess(false)
+            }, 2000)
 
         } else {
             setLStorage('inventory', [{
@@ -32,6 +42,13 @@ export default function CreateInventory({ closeModal }: {
                 produitId: produit,
                 stock: magasinStockValue
             }])
+            setIsSucess(true)
+            setProduit('');
+            setDate('');
+            setMagasinStockValue({})
+            setTimeout(() => {
+                setIsSucess(false)
+            }, 2000)
         }
     }
 
@@ -39,6 +56,7 @@ export default function CreateInventory({ closeModal }: {
         <div className='fixed top-0 left-0 z-20 bg-black/70 min-h-screen w-full flex items-center justify-center'>
 
             <form onSubmit={handleSaveInventory} className='flex flex-col gap-10 w-full max-w-[800px] p-10 bg-white rounded-lg min-h-[350px]'>
+                {isSuccess && <p className='text-white font-bold bg-green-700 py-2 w-full rounded text-center'>Item registered successfully</p>}
                 <h2 className='text-[30px] font-bold mb-[10px]'>Add an Entry</h2>
                 <div className='flex items-center gap-10'>
                     <label htmlFor="" className='flex items-center gap-2'>Produit <span className='text-red-500'>*</span></label>
